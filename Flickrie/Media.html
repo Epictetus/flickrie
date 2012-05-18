@@ -206,13 +206,25 @@
   
     <li><a href="../Flickrie/MediaCount.html">Flickrie::MediaCount</a>
   
+    <li><a href="../Flickrie/Middleware.html">Flickrie::Middleware</a>
+  
+    <li><a href="../Flickrie/Middleware/OAuthCheck.html">Flickrie::Middleware::OAuthCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/ParseOAuthParams.html">Flickrie::Middleware::ParseOAuthParams</a>
+  
+    <li><a href="../Flickrie/Middleware/Retry.html">Flickrie::Middleware::Retry</a>
+  
+    <li><a href="../Flickrie/Middleware/StatusCheck.html">Flickrie::Middleware::StatusCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/UploadStatusCheck.html">Flickrie::Middleware::UploadStatusCheck</a>
+  
     <li><a href="../Flickrie/OAuth.html">Flickrie::OAuth</a>
   
     <li><a href="../Flickrie/OAuth/AccessToken.html">Flickrie::OAuth::AccessToken</a>
   
-    <li><a href="../Flickrie/OAuth/Error.html">Flickrie::OAuth::Error</a>
-  
     <li><a href="../Flickrie/OAuth/RequestToken.html">Flickrie::OAuth::RequestToken</a>
+  
+    <li><a href="../Flickrie/OAuth/Token.html">Flickrie::OAuth::Token</a>
   
     <li><a href="../Flickrie/Photo.html">Flickrie::Photo</a>
   
@@ -271,7 +283,7 @@
 
           
           <div class="method-source-code" id="included-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/media.rb, line 233</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/media.rb, line 227</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">included</span>(<span class="ruby-identifier">klass</span>)
   <span class="ruby-identifier">klass</span>.<span class="ruby-identifier">extend</span>(<span class="ruby-constant">ClassMethods</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -301,7 +313,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/media.rb, line 237</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/media.rb, line 231</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">info</span>)
   <span class="ruby-identifier">eval</span>(<span class="ruby-identifier">info</span>[<span class="ruby-string">'media'</span>].<span class="ruby-identifier">capitalize</span>).<span class="ruby-identifier">new</span>(<span class="ruby-identifier">info</span>)
 <span class="ruby-keyword">end</span></pre>

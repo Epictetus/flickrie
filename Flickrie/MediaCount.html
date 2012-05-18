@@ -76,9 +76,13 @@
     
     <li><a href="#method-i-date_range">#date_range</a>
     
+    <li><a href="#method-i-from">#from</a>
+    
     <li><a href="#method-i-hash">#hash</a>
     
     <li><a href="#method-i-time_interval">#time_interval</a>
+    
+    <li><a href="#method-i-to">#to</a>
     
     <li><a href="#method-i-value">#value</a>
     
@@ -118,13 +122,25 @@
   
     <li><a href="../Flickrie/MediaCount.html">Flickrie::MediaCount</a>
   
+    <li><a href="../Flickrie/Middleware.html">Flickrie::Middleware</a>
+  
+    <li><a href="../Flickrie/Middleware/OAuthCheck.html">Flickrie::Middleware::OAuthCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/ParseOAuthParams.html">Flickrie::Middleware::ParseOAuthParams</a>
+  
+    <li><a href="../Flickrie/Middleware/Retry.html">Flickrie::Middleware::Retry</a>
+  
+    <li><a href="../Flickrie/Middleware/StatusCheck.html">Flickrie::Middleware::StatusCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/UploadStatusCheck.html">Flickrie::Middleware::UploadStatusCheck</a>
+  
     <li><a href="../Flickrie/OAuth.html">Flickrie::OAuth</a>
   
     <li><a href="../Flickrie/OAuth/AccessToken.html">Flickrie::OAuth::AccessToken</a>
   
-    <li><a href="../Flickrie/OAuth/Error.html">Flickrie::OAuth::Error</a>
-  
     <li><a href="../Flickrie/OAuth/RequestToken.html">Flickrie::OAuth::RequestToken</a>
+  
+    <li><a href="../Flickrie/OAuth/Token.html">Flickrie::OAuth::Token</a>
   
     <li><a href="../Flickrie/Photo.html">Flickrie::Photo</a>
   
@@ -183,7 +199,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 27</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">info</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-ivar">@info</span> = <span class="ruby-identifier">info</span>
   <span class="ruby-ivar">@dates_kind</span> = (<span class="ruby-identifier">params</span>[<span class="ruby-value">:dates</span>].<span class="ruby-identifier">nil?</span> <span class="ruby-operator">?</span> <span class="ruby-string">&quot;mysql timestamp&quot;</span> <span class="ruby-operator">:</span> <span class="ruby-string">&quot;unix timestamp&quot;</span>)
@@ -220,7 +236,7 @@
 
           
           <div class="method-source-code" id="5B-5D-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 22</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 25</span>
 <span class="ruby-keyword">def</span> <span class="ruby-operator">[]</span>(<span class="ruby-identifier">key</span>) <span class="ruby-ivar">@info</span>[<span class="ruby-identifier">key</span>] <span class="ruby-keyword">end</span></pre>
           </div><!-- 5B-5D-source -->
           
@@ -276,6 +292,34 @@
       </div><!-- date_range-method -->
 
     
+      <div id="method-i-from" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from-source">
+            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">from</span>() <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">begin</span> <span class="ruby-keyword">end</span></pre>
+          </div><!-- from-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- from-method -->
+
+    
       <div id="method-i-hash" class="method-detail ">
         
         <div class="method-heading">
@@ -292,7 +336,7 @@
 
           
           <div class="method-source-code" id="hash-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">hash</span>() <span class="ruby-ivar">@info</span> <span class="ruby-keyword">end</span></pre>
           </div><!-- hash-source -->
           
@@ -329,6 +373,34 @@
         </div>
         
       </div><!-- time_interval-method -->
+
+    
+      <div id="method-i-to" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to-source">
+            <pre><span class="ruby-comment"># File lib/flickrie/media_count.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">to</span>()   <span class="ruby-identifier">date_range</span>.<span class="ruby-identifier">end</span>   <span class="ruby-keyword">end</span></pre>
+          </div><!-- to-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- to-method -->
 
     
       <div id="method-i-value" class="method-detail ">

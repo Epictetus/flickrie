@@ -104,13 +104,25 @@
   
     <li><a href="../Flickrie/MediaCount.html">Flickrie::MediaCount</a>
   
+    <li><a href="../Flickrie/Middleware.html">Flickrie::Middleware</a>
+  
+    <li><a href="../Flickrie/Middleware/OAuthCheck.html">Flickrie::Middleware::OAuthCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/ParseOAuthParams.html">Flickrie::Middleware::ParseOAuthParams</a>
+  
+    <li><a href="../Flickrie/Middleware/Retry.html">Flickrie::Middleware::Retry</a>
+  
+    <li><a href="../Flickrie/Middleware/StatusCheck.html">Flickrie::Middleware::StatusCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/UploadStatusCheck.html">Flickrie::Middleware::UploadStatusCheck</a>
+  
     <li><a href="../Flickrie/OAuth.html">Flickrie::OAuth</a>
   
     <li><a href="../Flickrie/OAuth/AccessToken.html">Flickrie::OAuth::AccessToken</a>
   
-    <li><a href="../Flickrie/OAuth/Error.html">Flickrie::OAuth::Error</a>
-  
     <li><a href="../Flickrie/OAuth/RequestToken.html">Flickrie::OAuth::RequestToken</a>
+  
+    <li><a href="../Flickrie/OAuth/Token.html">Flickrie::OAuth::Token</a>
   
     <li><a href="../Flickrie/Photo.html">Flickrie::Photo</a>
   
@@ -187,15 +199,14 @@
 
           
           <div class="method-source-code" id="get_access_token-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/oauth.rb, line 53</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/oauth.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_access_token</span>(<span class="ruby-identifier">verifier</span>, <span class="ruby-identifier">request_token</span>)
-  <span class="ruby-identifier">connection</span> = <span class="ruby-identifier">new_connection</span>(<span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">token</span>, <span class="ruby-identifier">request_token</span>.<span class="ruby-identifier">secret</span>)
-
+  <span class="ruby-identifier">connection</span> = <span class="ruby-identifier">new_connection</span>(<span class="ruby-identifier">request_token</span>)
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">get</span> <span class="ruby-string">&quot;access_token&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">req</span>.<span class="ruby-identifier">params</span>[<span class="ruby-value">:oauth_verifier</span>] = <span class="ruby-identifier">verifier</span>
   <span class="ruby-keyword">end</span>
 
-  <span class="ruby-constant">AccessToken</span>.<span class="ruby-identifier">from_response</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+  <span class="ruby-constant">AccessToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- get_access_token-source -->
           
@@ -223,15 +234,14 @@
 
           
           <div class="method-source-code" id="get_request_token-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/oauth.rb, line 43</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/oauth.rb, line 38</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">get_request_token</span>(<span class="ruby-identifier">options</span> = {})
   <span class="ruby-identifier">connection</span> = <span class="ruby-identifier">new_connection</span>
-
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">connection</span>.<span class="ruby-identifier">get</span> <span class="ruby-string">&quot;request_token&quot;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">req</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">req</span>.<span class="ruby-identifier">params</span>[<span class="ruby-value">:oauth_callback</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:callback_url</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">NO_CALLBACK</span>
   <span class="ruby-keyword">end</span>
 
-  <span class="ruby-constant">RequestToken</span>.<span class="ruby-identifier">from_response</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
+  <span class="ruby-constant">RequestToken</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
 <span class="ruby-keyword">end</span></pre>
           </div><!-- get_request_token-source -->
           

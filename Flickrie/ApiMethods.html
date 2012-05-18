@@ -204,13 +204,25 @@
   
     <li><a href="../Flickrie/MediaCount.html">Flickrie::MediaCount</a>
   
+    <li><a href="../Flickrie/Middleware.html">Flickrie::Middleware</a>
+  
+    <li><a href="../Flickrie/Middleware/OAuthCheck.html">Flickrie::Middleware::OAuthCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/ParseOAuthParams.html">Flickrie::Middleware::ParseOAuthParams</a>
+  
+    <li><a href="../Flickrie/Middleware/Retry.html">Flickrie::Middleware::Retry</a>
+  
+    <li><a href="../Flickrie/Middleware/StatusCheck.html">Flickrie::Middleware::StatusCheck</a>
+  
+    <li><a href="../Flickrie/Middleware/UploadStatusCheck.html">Flickrie::Middleware::UploadStatusCheck</a>
+  
     <li><a href="../Flickrie/OAuth.html">Flickrie::OAuth</a>
   
     <li><a href="../Flickrie/OAuth/AccessToken.html">Flickrie::OAuth::AccessToken</a>
   
-    <li><a href="../Flickrie/OAuth/Error.html">Flickrie::OAuth::Error</a>
-  
     <li><a href="../Flickrie/OAuth/RequestToken.html">Flickrie::OAuth::RequestToken</a>
+  
+    <li><a href="../Flickrie/OAuth/Token.html">Flickrie::OAuth::Token</a>
   
     <li><a href="../Flickrie/Photo.html">Flickrie::Photo</a>
   
@@ -269,7 +281,7 @@
 
           
           <div class="method-source-code" id="add_media_tags-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 95</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 96</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">add_media_tags</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">tags</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">client</span>.<span class="ruby-identifier">add_media_tags</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">tags</span>, <span class="ruby-identifier">params</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -357,7 +369,7 @@
 
           
           <div class="method-source-code" id="check_upload_tickets-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 204</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 217</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">check_upload_tickets</span>(<span class="ruby-identifier">tickets</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">tickets</span> = <span class="ruby-identifier">tickets</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">','</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">tickets</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:join</span>)
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">check_upload_tickets</span>(<span class="ruby-identifier">tickets</span>, <span class="ruby-identifier">params</span>)
@@ -390,7 +402,7 @@
 
           
           <div class="method-source-code" id="delete_media-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 101</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 102</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">delete_media</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">client</span>.<span class="ruby-identifier">delete_media</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">media_id</span>
@@ -479,7 +491,7 @@
 
           
           <div class="method-source-code" id="find_user_by_email-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 52</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">find_user_by_email</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">find_user_by_email</span>(<span class="ruby-identifier">email</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">User</span>.<span class="ruby-identifier">from_find</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'user'</span>])
@@ -510,7 +522,7 @@
 
           
           <div class="method-source-code" id="find_user_by_username-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 57</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">find_user_by_username</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">find_user_by_username</span>(<span class="ruby-identifier">username</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">User</span>.<span class="ruby-identifier">from_find</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'user'</span>])
@@ -541,7 +553,7 @@
 
           
           <div class="method-source-code" id="get_licenses-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 215</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 228</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_licenses</span>(<span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_licenses</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-constant">License</span>.<span class="ruby-identifier">from_hash</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'licenses'</span>][<span class="ruby-string">'license'</span>])
@@ -567,12 +579,18 @@
 
         <div class="method-description">
           
-          
+          <h4 id="method-i-get_media_context-label-Example">Example</h4>
+
+<pre class="ruby"><span class="ruby-identifier">context</span> = <span class="ruby-constant">Flickrie</span>.<span class="ruby-identifier">get_photo_context</span>(<span class="ruby-value">37124234</span>)
+<span class="ruby-identifier">context</span>.<span class="ruby-identifier">count</span>    <span class="ruby-comment"># =&gt; 23</span>
+<span class="ruby-identifier">context</span>.<span class="ruby-identifier">previous</span> <span class="ruby-comment"># =&gt; #&lt;Photo: id=2433240, ...&gt;</span>
+<span class="ruby-identifier">context</span>.<span class="ruby-identifier">next</span>     <span class="ruby-comment"># =&gt; #&lt;Video: id=1282404, ...&gt;</span>
+</pre>
           
 
           
           <div class="method-source-code" id="get_media_context-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 132</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 139</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_media_context</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_context</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_context</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>)
@@ -602,12 +620,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns instances of <a href="MediaCount.html">Flickrie::MediaCount</a></p>
           
 
           
           <div class="method-source-code" id="get_media_counts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 139</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 147</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_media_counts</span>(<span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_counts</span>          <span class="ruby-constant">MediaCount</span>.<span class="ruby-identifier">ensure_utc</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photocounts'</span>][<span class="ruby-string">'photocount'</span>].
@@ -643,7 +661,7 @@
 
           
           <div class="method-source-code" id="get_media_info-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 166</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 178</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_media_info</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_info</span>(<span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_info</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photo'</span>])
@@ -700,12 +718,12 @@
 
         <div class="method-description">
           
-          
+          <p>See <a href="Media.html#method-i-exif">Flickrie::Media#exif</a> for details</p>
           
 
           
           <div class="method-source-code" id="get_photo_exif-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 148</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 157</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_photo_exif</span>(<span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_exif</span>(<span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Photo</span>.<span class="ruby-identifier">from_exif</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photo'</span>])
@@ -731,12 +749,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns instances of <a href="User.html">Flickrie::User</a></p>
           
 
           
           <div class="method-source-code" id="get_photo_favorites-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 157</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 168</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_photo_favorites</span>(<span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_favorites</span>(<span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Photo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photo'</span>])
@@ -789,12 +807,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns an instance of <a href="Photo.html">Flickrie::Photo</a></p>
           
 
           
           <div class="method-source-code" id="get_photo_sizes-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 174</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 186</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_photo_sizes</span>(<span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_sizes</span>(<span class="ruby-identifier">photo_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Photo</span>.<span class="ruby-identifier">from_sizes</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'sizes'</span>])
@@ -852,7 +870,7 @@
 
           
           <div class="method-source-code" id="get_set_info-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 222</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 235</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_set_info</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_set_info</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Set</span>.<span class="ruby-identifier">from_info</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photoset'</span>])
@@ -883,7 +901,7 @@
 
           
           <div class="method-source-code" id="get_user_info-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 62</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_user_info</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_user_info</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">User</span>.<span class="ruby-identifier">from_info</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'person'</span>])
@@ -936,12 +954,12 @@
 
         <div class="method-description">
           
-          
+          <p>See <a href="Media.html#method-i-exif">Flickrie::Media#exif</a> for details</p>
           
 
           
           <div class="method-source-code" id="get_video_exif-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 152</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 162</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_video_exif</span>(<span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_exif</span>(<span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Video</span>.<span class="ruby-identifier">from_exif</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photo'</span>])
@@ -967,12 +985,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns instances of <a href="User.html">Flickrie::User</a></p>
           
 
           
           <div class="method-source-code" id="get_video_favorites-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 161</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 173</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_video_favorites</span>(<span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_favorites</span>(<span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Video</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photo'</span>])
@@ -1025,12 +1043,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns an instance of <a href="Video.html">Flickrie::Video</a></p>
           
 
           
           <div class="method-source-code" id="get_video_sizes-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 178</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 191</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">get_video_sizes</span>(<span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">get_media_sizes</span>(<span class="ruby-identifier">video_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Video</span>.<span class="ruby-identifier">from_sizes</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'sizes'</span>])
@@ -1088,7 +1106,7 @@
 
           
           <div class="method-source-code" id="media_from_contacts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 108</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 109</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">media_from_contacts</span>(<span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">media_from_contacts</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_contacts</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photos'</span>])
@@ -1119,7 +1137,7 @@
 
           
           <div class="method-source-code" id="media_from_set-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 232</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 245</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">media_from_set</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">media_from_set</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_set</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photoset'</span>])
@@ -1150,7 +1168,7 @@
 
           
           <div class="method-source-code" id="media_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 67</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 68</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_user</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photos'</span>])
@@ -1181,7 +1199,7 @@
 
           
           <div class="method-source-code" id="photos_from_contacts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 112</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 113</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">photos_from_contacts</span>(<span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">media_from_contacts</span>(<span class="ruby-identifier">params</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Photo</span>) }
 <span class="ruby-keyword">end</span></pre>
@@ -1211,7 +1229,7 @@
 
           
           <div class="method-source-code" id="photos_from_set-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 236</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 249</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">photos_from_set</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">media_from_set</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'photos'</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -1241,7 +1259,7 @@
 
           
           <div class="method-source-code" id="photos_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 71</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 72</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">photos_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>).
     <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Photo</span>) }
@@ -1272,7 +1290,7 @@
 
           
           <div class="method-source-code" id="public_media_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 80</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 81</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">public_media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">public_media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_user</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photos'</span>])
@@ -1303,7 +1321,7 @@
 
           
           <div class="method-source-code" id="public_media_from_user_contacts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 119</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 120</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">public_media_from_user_contacts</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">public_media_from_user_contacts</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_contacts</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photos'</span>])
@@ -1334,7 +1352,7 @@
 
           
           <div class="method-source-code" id="public_photos_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 84</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 85</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">public_photos_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">public_media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>).
     <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Photo</span>) }
@@ -1365,7 +1383,7 @@
 
           
           <div class="method-source-code" id="public_photos_from_user_contacts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 123</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 124</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">public_photos_from_user_contacts</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">public_media_from_user_contacts</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>).
     <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Photo</span>) }
@@ -1396,7 +1414,7 @@
 
           
           <div class="method-source-code" id="public_videos_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 88</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 89</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">public_videos_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">public_media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>).
     <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Video</span>) }
@@ -1427,7 +1445,7 @@
 
           
           <div class="method-source-code" id="public_videos_from_user_contacts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 127</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 128</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">public_videos_from_user_contacts</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">public_media_from_user_contacts</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>).
     <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Photo</span>) }
@@ -1458,7 +1476,7 @@
 
           
           <div class="method-source-code" id="remove_media_tag-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 183</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 196</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">remove_media_tag</span>(<span class="ruby-identifier">tag_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">client</span>.<span class="ruby-identifier">remove_media_tag</span>(<span class="ruby-identifier">tag_id</span>, <span class="ruby-identifier">params</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -1555,7 +1573,7 @@
 
           
           <div class="method-source-code" id="replace-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 41</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">replace</span>(<span class="ruby-identifier">media</span>, <span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">upload_client</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">media</span>, <span class="ruby-identifier">media_id</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:async</span>] <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
@@ -1590,7 +1608,7 @@
 
           
           <div class="method-source-code" id="search_media-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 189</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 202</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search_media</span>(<span class="ruby-identifier">search_params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">search_media</span>(<span class="ruby-identifier">search_params</span>)
   <span class="ruby-constant">Media</span>.<span class="ruby-identifier">from_search</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photos'</span>])
@@ -1621,7 +1639,7 @@
 
           
           <div class="method-source-code" id="search_photos-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 193</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 206</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search_photos</span>(<span class="ruby-identifier">search_params</span> = {})
   <span class="ruby-identifier">search_media</span>(<span class="ruby-identifier">search_params</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'photos'</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -1651,7 +1669,7 @@
 
           
           <div class="method-source-code" id="search_videos-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 196</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 209</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">search_videos</span>(<span class="ruby-identifier">search_params</span> = {})
   <span class="ruby-identifier">search_media</span>(<span class="ruby-identifier">search_params</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'videos'</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -1681,7 +1699,7 @@
 
           
           <div class="method-source-code" id="sets_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 227</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 240</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">sets_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">sets_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-constant">Set</span>.<span class="ruby-identifier">from_user</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'photosets'</span>][<span class="ruby-string">'photoset'</span>], <span class="ruby-identifier">user_nsid</span>)
@@ -1707,12 +1725,12 @@
 
         <div class="method-description">
           
-          
+          <p>Returns an instance of <a href="User.html">Flickrie::User</a></p>
           
 
           
           <div class="method-source-code" id="test_login-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 245</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 260</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">test_login</span>(<span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">client</span>.<span class="ruby-identifier">test_login</span>(<span class="ruby-identifier">params</span>)
   <span class="ruby-constant">User</span>.<span class="ruby-identifier">from_test</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>[<span class="ruby-string">'user'</span>])
@@ -1751,7 +1769,7 @@
 
           
           <div class="method-source-code" id="upload-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">upload</span>(<span class="ruby-identifier">media</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">response</span> = <span class="ruby-identifier">upload_client</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">media</span>, <span class="ruby-identifier">params</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:async</span>] <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
@@ -1786,7 +1804,7 @@
 
           
           <div class="method-source-code" id="videos_from_contacts-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 115</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 116</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">videos_from_contacts</span>(<span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">media_from_contacts</span>(<span class="ruby-identifier">params</span>).<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Video</span>) }
 <span class="ruby-keyword">end</span></pre>
@@ -1816,7 +1834,7 @@
 
           
           <div class="method-source-code" id="videos_from_set-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 239</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 252</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">videos_from_set</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">media_from_set</span>(<span class="ruby-identifier">set_id</span>, <span class="ruby-identifier">params</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-value">:media</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-string">'videos'</span>))
 <span class="ruby-keyword">end</span></pre>
@@ -1846,7 +1864,7 @@
 
           
           <div class="method-source-code" id="videos_from_user-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 75</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/api_methods.rb, line 76</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">videos_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span> = {})
   <span class="ruby-identifier">media_from_user</span>(<span class="ruby-identifier">user_nsid</span>, <span class="ruby-identifier">params</span>).
     <span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">media</span><span class="ruby-operator">|</span> <span class="ruby-identifier">media</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Video</span>) }

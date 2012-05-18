@@ -58,6 +58,7 @@
     <li>lib/flickrie/media/visibility.rb
     <li>lib/flickrie/media.rb
     <li>lib/flickrie/media_count.rb
+    <li>lib/flickrie/middleware.rb
     <li>lib/flickrie/oauth.rb
     <li>lib/flickrie/photo.rb
     <li>lib/flickrie/set.rb
@@ -121,13 +122,25 @@
   
     <li><a href="./Flickrie/MediaCount.html">Flickrie::MediaCount</a>
   
+    <li><a href="./Flickrie/Middleware.html">Flickrie::Middleware</a>
+  
+    <li><a href="./Flickrie/Middleware/OAuthCheck.html">Flickrie::Middleware::OAuthCheck</a>
+  
+    <li><a href="./Flickrie/Middleware/ParseOAuthParams.html">Flickrie::Middleware::ParseOAuthParams</a>
+  
+    <li><a href="./Flickrie/Middleware/Retry.html">Flickrie::Middleware::Retry</a>
+  
+    <li><a href="./Flickrie/Middleware/StatusCheck.html">Flickrie::Middleware::StatusCheck</a>
+  
+    <li><a href="./Flickrie/Middleware/UploadStatusCheck.html">Flickrie::Middleware::UploadStatusCheck</a>
+  
     <li><a href="./Flickrie/OAuth.html">Flickrie::OAuth</a>
   
     <li><a href="./Flickrie/OAuth/AccessToken.html">Flickrie::OAuth::AccessToken</a>
   
-    <li><a href="./Flickrie/OAuth/Error.html">Flickrie::OAuth::Error</a>
-  
     <li><a href="./Flickrie/OAuth/RequestToken.html">Flickrie::OAuth::RequestToken</a>
+  
+    <li><a href="./Flickrie/OAuth/Token.html">Flickrie::OAuth::Token</a>
   
     <li><a href="./Flickrie/Photo.html">Flickrie::Photo</a>
   
@@ -166,7 +179,12 @@
       <h3 class="section-header">Constants</h3>
       <dl>
       
-        <dt id="DEFAULTS">DEFAULTS
+        <dt id="OPEN_TIMEOUT">OPEN_TIMEOUT
+        
+        <dd class="description">
+        
+      
+        <dt id="TIMEOUT">TIMEOUT
         
         <dd class="description">
         
@@ -208,7 +226,7 @@
 
           
           <div class="method-source-code" id="client-source">
-            <pre><span class="ruby-comment"># File lib/flickrie/client.rb, line 28</span>
+            <pre><span class="ruby-comment"># File lib/flickrie/client.rb, line 26</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">client</span>
   <span class="ruby-ivar">@client</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">new_client</span>
 <span class="ruby-keyword">end</span></pre>
